@@ -16,10 +16,6 @@ for i in range(num_constraints):
     constraints.append(constraint)
     bounds.append(bound)
 
-# Convert the constraints and bounds to a format suitable for linprog
-constraints = [list(i) for i in zip(*constraints)]  # Transpose the matrix
-bounds = [(None, b) for b in bounds]  # Bounds are tuples
-
 # If it's a maximization problem, we need to negate the objective function
 if opt_type.lower() == 'max':
     obj_func = [-1 * i for i in obj_func]
